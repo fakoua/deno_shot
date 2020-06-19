@@ -1,4 +1,4 @@
-# DenoShot
+# deno_shot
 
 A Deno module/cli to capture web page screenshots.
 
