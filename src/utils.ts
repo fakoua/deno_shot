@@ -1,7 +1,7 @@
 import { join }  from "https://deno.land/std/path/mod.ts";
 import { ensureDir } from "https://deno.land/std/fs/ensure_dir.ts";
-import { copy } from "https://deno.land/std/fs/copy.ts";
-import { exists } from "https://deno.land/std/fs/exists.ts";
+import { copy } from "https://deno.land/std@0.52.0/fs/copy.ts";
+import { exists } from "https://deno.land/std@0.52.0/fs/exists.ts";
 import * as ink from 'https://deno.land/x/ink/mod.ts';
 import { Size } from './Config.ts';
 
