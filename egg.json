@@ -1,0 +1,11 @@
+{
+    "name": "DenoShot",
+    "description": "Capture web screenshot from Deno!",
+    "stable": true,
+    "files": [
+        "./mod.ts",
+        "./README.md",
+        "./test_deps.ts",
+        "./src/**/*"
+    ]
+}

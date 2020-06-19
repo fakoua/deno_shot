@@ -1,1 +1,100 @@
-Under construction
+# DenoShot
+
+A Deno module/cli to capture web page screenshots.
+
+## Features
+
+- Capture web url in headless mode.
+- Supports Window Size.
+- Supports fullscreen size.
+
+## CLI Installation
+
+```
+deno install -A --unstable -n denoshot https://deno.land/x/DenoShot/mod.ts
+```
+
+## CLI Examples
+
+Capture www.google.com website with window size 700x600 px
+```sh
+denoshot --url=https://www.google.com --image=c:\temp\img.png --size=700,600
+```
+denoshot command line supports the following arguments:
+
+```
+--url: required - Web Page, format: --url=https://www.github.com
+--size: optional (default 800,600) - Window Size, format: --size=w,h
+--max: optional (default false) - Full Screen, format: --max=true (Overrides --size)
+--image: recommended (default c:\temp\screenshot.png) - Specify the output image, format: --image=C:\MyFolder\Test.png
+--debug: optional (default false) - Prints debug data.
+```
+
+## Using with Deno
+
+```ts
+import { Capture } from 'https://deno.land/x/DenoShot/mod.ts'
+
+let res = await Capture({
+    url: 'https://www.github.com',
+    image: 'C:\\sam\\image.png',
+    maximized: false, 
+    windowSize: {
+        width: 1000,
+        height: 890
+    }
+});
+
+if (res.success) {
+    console.log(res.image)
+}
+```
+
+To run the script:
+
+```sh
+deno run -A --unstable myfile.ts
+```
+
+## Capture Argument
+
+```ts
+Capture(config: Config)
+
+Config: {
+    /**
+     * Full Path of the output image (png only).
+     * Default: C:\temp\screenshot.png
+     */
+    image?: string,
+
+    /**
+     * Window Size (ignored if Maximize is true).
+     * Default: 800, 600
+     */
+    windowSize?: Size = {
+        width: number, 
+        height: number
+    }
+
+    /**
+     * Capture full screen url (overrides windowSize).
+     * Default: false
+     */
+    maximized?: boolean,
+
+    /**
+     * URL Page to capture.
+     */
+    url: string,
+
+    /**
+     * Used in the return: true when success.
+     */
+    success?: boolean
+}
+```
+
+## Note
+
+DenoShot will download chrome at firt run.
