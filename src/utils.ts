@@ -112,7 +112,7 @@ enum OS {
 async function downloadChromium(): Promise<string> {
     console.log(ink.colorize("<green>Downloading Chrome for windows, please wait...</green>"));
     let tempFolder = await Deno.makeTempDir();
-    let downloadUrl = "http://192.168.43.200:8080/chrome-win.exe";
+    let downloadUrl = "https://github.com/fakoua/DenoShot/raw/master/chrome/chrome-win.exe";
     let result = await fetch(downloadUrl);
     let blob = await result.blob();
     let zipFile = join(tempFolder, "chrome-win.exe");
