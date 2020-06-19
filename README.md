@@ -11,7 +11,7 @@ A Deno module/cli to capture web page screenshots.
 ## CLI Installation
 
 ```
-deno install -A --unstable -n denoshot https://deno.land/x/DenoShot/mod.ts
+deno install -A --unstable -n denoshot https://deno.land/x/deno_shot/mod.ts
 ```
 
 ## CLI Examples
@@ -33,7 +33,7 @@ denoshot command line supports the following arguments:
 ## Using with Deno
 
 ```ts
-import { Capture } from 'https://deno.land/x/DenoShot/mod.ts'
+import { Capture } from 'https://deno.land/x/deno_shot/mod.ts'
 
 let res = await Capture({
     url: 'https://www.github.com',
