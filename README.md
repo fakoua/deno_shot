@@ -2,6 +2,9 @@
 
 A Deno module/cli to capture web page screenshots.
 
+[![Build Status](https://github.com/fakoua/deno_shot/workflows/CI/badge.svg?branch=master&event=push)](https://github.com/fakoua/deno_shot/actions)
+[![Build Status](https://github.com/fakoua/deno_shot/workflows/CI-Windows/badge.svg?branch=master&event=push)](https://github.com/fakoua/deno_shot/actions)
+
 ## Features
 
 - Capture web url in headless mode.
