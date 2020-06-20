@@ -1,10 +1,10 @@
-name: CI
+name: CI-Windows
 on:
   push:
     branches: [master]
 jobs:
   build:
-    runs-on: ubuntu-16.04
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@master
       - uses: denolib/setup-deno@master
