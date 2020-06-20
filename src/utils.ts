@@ -42,14 +42,12 @@ export async function getScreenResolution(): Promise<Size> {
         const p = Deno.run({
             cmd: cmd,
             stdout: "piped",
-            stderr: "piped",
+            stderr: "null",
         });
         
         let out = await p.output();
-        p.close();
-        
         let result = new TextDecoder("utf-8").decode(out);
-        
+        p.close();
         let sizes = result.split(" x ");
         return {
             width: parseInt(sizes[0]),
