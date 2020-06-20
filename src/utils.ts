@@ -45,7 +45,9 @@ export async function getScreenResolution(): Promise<Size> {
             stderr: "piped",
         });
         
-        let out = await p.output()
+        let out = await p.output();
+        p.close();
+        
         let result = new TextDecoder("utf-8").decode(out);
         
         let sizes = result.split(" x ");
@@ -135,9 +137,10 @@ async function unZipChrome(zipFile: string): Promise<boolean> {
             "-y",
             "-o"
         ],
-        stdout: "piped",
-        stderr: "piped"
+        stdout: "null",
+        stderr: "null"
     });
-    const res = await p.status()
+    const res = await p.status();
+    p.close();
     return res.success;
 }

@@ -48,12 +48,13 @@ export async function Capture(config: Config): Promise<Config> {
 
     const p = Deno.run({
         cmd: cmd,
-        stdout: "piped",
-        stderr: "piped",
+        stdout: "null",
+        stderr: "null",
     });
 
     const res = await p.status();
     config.success = res.success;
+    p.close();
     return config;
 }
 
