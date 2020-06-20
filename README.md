@@ -2,6 +2,7 @@
 
 A Deno module/cli to capture web page screenshots.
 
+[![nest badge](https://nest.land/badge.svg)](https://nest.land/package/deno_shot)
 [![Build Status](https://github.com/fakoua/deno_shot/workflows/CI/badge.svg?branch=master&event=push)](https://github.com/fakoua/deno_shot/actions)
 [![Build Status](https://github.com/fakoua/deno_shot/workflows/CI-Windows/badge.svg?branch=master&event=push)](https://github.com/fakoua/deno_shot/actions)
 
@@ -18,7 +19,7 @@ deno install -A --unstable -n denoshot https://deno.land/x/deno_shot/mod.ts -f
 ```
 or
 ```
-deno install -A --unstable -n denoshot https://x.nest.land/deno_shot@0.0.4/mod.ts -f
+deno install -A --unstable -n denoshot https://x.nest.land/deno_shot@0.0.5/mod.ts -f
 ```
 
 ## CLI Examples
