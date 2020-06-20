@@ -14,7 +14,11 @@ A Deno module/cli to capture web page screenshots.
 ## CLI Installation
 
 ```
-deno install -A --unstable -n denoshot https://deno.land/x/deno_shot/mod.ts
+deno install -A --unstable -n denoshot https://deno.land/x/deno_shot/mod.ts -f
+```
+or
+```
+deno install -A --unstable -n denoshot https://x.nest.land/deno_shot@0.0.3/mod.ts -f
 ```
 
 ## CLI Examples

@@ -1,6 +1,7 @@
 {
     "name": "deno_shot",
     "description": "Capture web screenshot from Deno!",
+    "repository": "https://github.com/fakoua/deno_shot",
     "stable": true,
     "files": [
         "./LICENSE",
