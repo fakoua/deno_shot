@@ -1,6 +1,7 @@
 import * as utils from "./src/utils.ts";
 import { Config, defaultConfig, sizeToString, stringToSize } from "./src/Config.ts";
 import { parse } from "https://deno.land/std/flags/mod.ts";
+import * as ink from 'https://deno.land/x/ink/mod.ts';
 
 export async function Capture(config: Config): Promise<Config> {
     config = defaultConfig(config);
@@ -69,16 +70,35 @@ let opts = {
 
 let argsv = parse(Deno.args, opts)
 
-if (argsv.url != undefined) {
-    let config: Config = {
-        url: argsv.url,
-        maximized: argsv.max,
-        image: argsv.image,
-        windowSize: stringToSize(argsv.size)
-    };
-    let result = await Capture(config)
-
-    if (argsv.debug) {
-        console.log(result)
+if (import.meta.main) {
+    if (argsv.url == undefined) {
+        // print help
+        ink.terminal.log("<u>Thank you for using deno_shot.</u>")
+        ink.terminal.log("Usage:")
+        ink.terminal.log("   <b>deno_shot</b> <red>--url=https://www.example.com</red> <yellow>[--image=path.png] [--size=w,h] [--max=true|false] [--debug=true|false]</yellow>")
+        ink.terminal.log("")
+        ink.terminal.log("   <blue>The following arguments are available:</blue>")
+        ink.terminal.log("")
+        ink.terminal.log("        --url           - Sets the web page url (starts with protocol http/https)")
+        ink.terminal.log("        --image         - Sets the output image [Default c:\\temp\\screenshot.png]")
+        ink.terminal.log("        --size          - Sets the output image size as width,height [Default 800,600]")
+        ink.terminal.log("        --max           - Capture in full screen [Default false] (overrides --size)")
+        ink.terminal.log("        --debug         - Output extra information in console [Default false]")
+        ink.terminal.log("")
+        ink.terminal.log("   <magenta>deno_shot version 1.0.2</magenta>")
+        ink.terminal.log("")
+    }
+    else {
+        let config: Config = {
+            url: argsv.url,
+            maximized: argsv.max,
+            image: argsv.image,
+            windowSize: stringToSize(argsv.size)
+        };
+        let result = await Capture(config)
+    
+        if (argsv.debug) {
+            console.log(result)
+        }
     }
 }
