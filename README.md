@@ -3,8 +3,7 @@
 A Deno module/cli to capture web page screenshots.
 
 [![nest badge](https://nest.land/badge.svg)](https://nest.land/package/deno_shot)
-[![Build Status](https://github.com/fakoua/deno_shot/workflows/CI/badge.svg?branch=master&event=push)](https://github.com/fakoua/deno_shot/actions)
-[![Build Status](https://github.com/fakoua/deno_shot/workflows/CI-Windows/badge.svg?branch=master&event=push)](https://github.com/fakoua/deno_shot/actions)
+![Deno CI](https://github.com/fakoua/deno_shot/workflows/Deno%20CI/badge.svg)
 
 ## Features
 
