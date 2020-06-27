@@ -19,7 +19,7 @@ deno install -A --unstable -f -n denoshot https://deno.land/x/deno_shot/mod.ts
 or
 
 ```
-deno install -A --unstable -f -n denoshot https://x.nest.land/deno_shot@1.0.2/mod.ts
+deno install -A --unstable -f -n denoshot https://x.nest.land/deno_shot@1.0.3/mod.ts
 ```
 
 or with dpx

@@ -3,7 +3,7 @@
     "description": "Capture web screenshot from Deno!",
     "repository": "https://github.com/fakoua/deno_shot",
     "stable": true,
-    "version": "1.0.2",
+    "version": "1.0.3",
     "files": [
         "./LICENSE",
         "./mod.ts",

@@ -1,4 +1,4 @@
-export type Config = {
+export interface Config {
     /**
      * Full Path of the output image (png only).
      * Default: C:\temp\screenshot.png
@@ -28,15 +28,15 @@ export type Config = {
     success?: boolean
 }
 
-export type Size = {
+export interface Size {
     width: number, 
     height: number
 }
 
 export function defaultConfig(config: Config): Config {
-    if (config.maximized == undefined) config.maximized = false;
-    if (config.image == undefined) config.image = "C:\\temp\\screenshot.png";
-    if (config.windowSize == undefined) {
+    if (config.maximized === undefined) { config.maximized = false; }
+    if (config.image === undefined) { config.image = "C:\\temp\\screenshot.png"; }
+    if (config.windowSize === undefined) {
         config.windowSize = {
             height: 600,
             width: 800,
@@ -47,15 +47,15 @@ export function defaultConfig(config: Config): Config {
 }
 
 export function sizeToString(size?: Size): string {
-    if (size == undefined) {
-        return '800,600';
+    if (size === undefined) {
+        return "800,600";
     }
     return `${size.width},${size.height}`;
 }
 
 export function stringToSize(stringSize: string): Size {
-    let pos = stringSize.split(",");
-    if (pos.length != 2) {
+    const pos = stringSize.split(",");
+    if (pos.length !== 2) {
         return {
             height: 600,
             width: 800
@@ -63,7 +63,7 @@ export function stringToSize(stringSize: string): Size {
     }
 
     return {
-        height: parseInt(pos[1]),
-        width: parseInt(pos[0])
+        height: parseInt(pos[1], 10),
+        width: parseInt(pos[0], 10)
     }
 }
