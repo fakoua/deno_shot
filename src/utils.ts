@@ -117,26 +117,10 @@ async function downloadChromium(): Promise<string> {
     await Deno.writeFile(zipFile, new Uint8Array(await blob.arrayBuffer()));
     console.log(ink.colorize("<green>Chrome for windows downloaded successfully.</green>"));
     console.log(ink.colorize("<blue>Unzip Chrome</blue>"));
-    const suc = await unZipChrome(zipFile);
     const extract = join(tempFolder, "chrome-win");
     const dest = await getChromiumPath();
     console.log(ink.colorize("<blue>Copy bin files.</blue>"));
     await copy(extract, dest, { overwrite: true });
     console.log(ink.colorize("<red><<< Done >>></red>"))
     return zipFile;
-}
-
-async function unZipChrome(zipFile: string): Promise<boolean> {
-    const p = Deno.run({
-        cmd: [
-            zipFile,
-            "-y",
-            "-o"
-        ],
-        stdout: "null",
-        stderr: "null"
-    });
-    const res = await p.status();
-    p.close();
-    return res.success;
 }
