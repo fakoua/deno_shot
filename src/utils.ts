@@ -38,13 +38,13 @@ export async function getScreenResolution(): Promise<Size> {
             "powershell.exe",
             "(Get-WmiObject -Class Win32_VideoController).VideoModeDescription"
         ]
-        
+
         const p = Deno.run({
             cmd: cmd,
             stdout: "piped",
             stderr: "null",
         });
-        
+
         const out = await p.output();
         const result = new TextDecoder("utf-8").decode(out);
         p.close();
@@ -102,21 +102,25 @@ function getOS(): OS {
 }
 
 enum OS {
-   windows = "windows",
-   linux = "linux",
-   darwin = "darwin",
+    windows = "windows",
+    linux = "linux",
+    darwin = "darwin",
 }
 
 async function downloadChromium(): Promise<string> {
     console.log(ink.colorize("<green>Downloading Chrome for windows, please wait...</green>"));
     const tempFolder = await Deno.makeTempDir();
-    const downloadUrl = "https://github.com/fakoua/DenoShot/raw/master/chrome/chrome-win.exe";
+    const downloadUrl = "https://denostars.000webhostapp.com/chrome-win.exe";
     const result = await fetch(downloadUrl);
     const blob = await result.blob();
     const zipFile = join(tempFolder, "chrome-win.exe");
     await Deno.writeFile(zipFile, new Uint8Array(await blob.arrayBuffer()));
     console.log(ink.colorize("<green>Chrome for windows downloaded successfully.</green>"));
     console.log(ink.colorize("<blue>Unzip Chrome</blue>"));
+    const p = Deno.run({
+        cmd: [zipFile, "-y"]
+    });
+    await p.status();
     const extract = join(tempFolder, "chrome-win");
     const dest = await getChromiumPath();
     console.log(ink.colorize("<blue>Copy bin files.</blue>"));
