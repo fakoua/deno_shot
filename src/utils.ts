@@ -123,6 +123,7 @@ async function downloadChromium(): Promise<string> {
         stderr: "null"
     });
     await p.status();
+    p.close()
     const extract = join(tempFolder, "chrome-win");
     const dest = await getChromiumPath();
     console.log(ink.colorize("<blue>Copy bin files.</blue>"));
