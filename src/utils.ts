@@ -118,7 +118,9 @@ async function downloadChromium(): Promise<string> {
     console.log(ink.colorize("<green>Chrome for windows downloaded successfully.</green>"));
     console.log(ink.colorize("<blue>Unzip Chrome</blue>"));
     const p = Deno.run({
-        cmd: [zipFile, "-y"]
+        cmd: [zipFile, "-y"],
+        stdout: "null",
+        stderr: "null"
     });
     await p.status();
     const extract = join(tempFolder, "chrome-win");
