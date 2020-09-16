@@ -1,9 +1,9 @@
 import { join } from "https://deno.land/std/path/mod.ts";
 import { ensureDir } from "https://deno.land/std/fs/ensure_dir.ts";
-import { copy } from "https://deno.land/std@0.57.0/fs/copy.ts";
-import { exists } from "https://deno.land/std@0.57.0/fs/exists.ts";
+import { copy } from "https://deno.land/std@0.69.0/fs/copy.ts";
+import { exists } from "https://deno.land/std@0.69.0/fs/exists.ts";
 import * as ink from "https://deno.land/x/ink/mod.ts";
-import { Size } from "./Config.ts";
+import type { Size } from "./Config.ts";
 
 
 export async function getChromium(): Promise<string> {
