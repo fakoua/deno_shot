@@ -64,11 +64,10 @@ export async function getScreenResolution(): Promise<Size> {
 async function getChromiumPath(): Promise<string> {
     const binFolder = join(getDenoDir(), "bin/webcapture/chrome-win")
     const ex = await exists(binFolder)
-    if (ex) {
-        return binFolder;
+    if (!ex) {
+        // Ensure directory
+        await ensureDir(binFolder)
     }
-    // Ensure directory
-    await ensureDir(binFolder)
     return binFolder;
 }
 
